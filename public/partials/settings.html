@@ -1,16 +1,18 @@
-<div class="list" ng-controller='SettingsController'>		
-	<form>
-	  <div class="row">
-          <div class="small-12 columns">
-            <input ng-model="url" type="text" placeholder="URL">
-          </div>
-      </div>
-
-    <div class="text-center">
-      <button ng-click="setUrl()" class="button tiny info">Set URL</button>
+<div class="row">
+    <div class="small-9 small-centered">
+        <div class="row">
+            <div class="small-12 columns">
+                <input ng-model="url" type="text" placeholder="Set server URL here. Please remove the trailing '/'"/>
+            </div>
+        </div>
+        <p class="small-12 warning columns" ng-show="isInvalid" >
+            Please remove the trailing '/'!
+        </p>
+        <p class="small-12 congrats columns" ng-show="isSet" >
+            URL {{url}} has been set!
+        </p>
+        <div class="text-center">
+            <button ng-click="setUrl()" class="button small info">Set URL</button>
+        </div>
     </div>
-
-    {{displayText}}
-
-  </form>
 </div>

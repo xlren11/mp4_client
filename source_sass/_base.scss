@@ -1,1 +1,26 @@
 // Add any custom Sass & CSS here
+
+#title {
+  //text-align: center;
+  //font-size: 20px;
+  background-color: lightgrey;
+}
+.title-style {
+  padding-left:0px;
+}
+.warning {
+  background-color: red;
+  background-clip: content-box;
+  //height: 20px;
+  //font-size: 16px;
+  color: white;
+}
+.congrats {
+  background-color: #3adb76;
+  background-clip: content-box;
+}
+#usrList {
+  li {
+    display: inline
+  }
+}

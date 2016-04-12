@@ -1,0 +1,37 @@
+<div class="row" ng-controller="UserInfoController">
+    <div class="small-9 small-centered">
+        <div class="small-12 columns">
+            <div class="row">
+                <div style="font-size:25px" class="title-style small-12 columns"><strong><span style="color:rebeccapurple">User Profile</span></strong></div>
+            </div>
+            <div class="row">
+                <div style="font-size:20px">
+                    {{user.name}} &nbsp;&nbsp;&nbsp;&nbsp; <em>{{user.email}}</em>
+                </div>
+                <br>
+                <div style="font-size:20px"><strong><span style="color:rebeccapurple">Pending Tasks</span></strong></div>
+            </div>
+            <div ng-repeat="task in pendingTasks">
+                <div class="row">
+                    <div class="small-5 columns"><a href="#/tasks/{{task._id}}">{{task.name}}</a></div>
+                    <div class="small-5 columns">Deadline: {{task.deadline|date:'yyyy-MM-dd'}}</div>
+                    <div style="text-align: right;" class="small-2 columns">
+                        <button ng-click="completeTask(task._id)" class="button small info">Completed</button>
+                    </div>
+                </div>
+            </div>
+                <br>
+            <div class="row">
+                <button ng-click="showCompletedTasks()" class="button">	Show Completed Tasks
+                </button>
+            </div>
+            <div ng-repeat="completedtask in completedTasks" ng-show="show">
+                <div class="row">
+                    <div class="small-5 columns"><a href="#/tasks/{{completedtask._id}}">{{completedtask.name}}</a></div>
+                    <div class="small-7 columns">Deadline: {{completedtask.deadline|date:'yyyy-MM-dd'}}</div>
+                </div>
+                <div class="row"><br></div>
+            </div>
+        </div>
+    </div>
+</div>

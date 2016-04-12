@@ -1,0 +1,36 @@
+<div class="row" ng-controller="AddUserController">
+    <div class="small-9 small-centered">
+        <div class="row">
+            <div class="small-12 columns">
+                <div style="font-size:20px" class="title-style small-12 columns"><strong><span style="color:rebeccapurple">Add User</span></strong></div>
+            </div>
+            <div class="small-12 columns">
+                Name <span style="color:red">*</span>
+                <input ng-model="user_name" type="text" placeholder ="Name">
+            </div>
+            <p class="warning small-12 columns" ng-show="empty_user" >
+                Name is required!
+            </p>
+            <div class="small-12 columns">
+                Email <span style="color:red">*</span>
+                <input ng-model="user_email" type="text" placeholder ="Email">
+            </div>
+
+            <p class="warning small-12 columns" ng-show="empty_email" >
+                Email is required!
+            </p>
+
+            <p class="congrats small-12 columns" ng-show="addSuccess" >
+                User {{added_user_name}} has been added!
+            </p>
+
+            <p class="warning small-12 columns" ng-show="duplicateEmail" >
+                This email already exists!
+            </p>
+        </div>
+        <div class="text-center">
+            <button ng-click="addUserInfo()" class="button small info">Submit</button>
+        </div>
+    </div>
+</div>
+

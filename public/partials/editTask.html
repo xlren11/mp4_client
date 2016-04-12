@@ -1,0 +1,56 @@
+<div class="row" ng-controller="EditTaskController">
+    <div class="small-9 small-centered">
+        <div class="row">
+            <div class="small-12 columns">
+                <div style="font-size:20px" class="title-style small-12 columns"><strong><span style="color:rebeccapurple">Edit Task</span></strong></div>
+            </div>
+            <div class="small-12 columns">
+                Name <span style="color:red">*</span>
+                <input ng-model="task_name" type="text" placeholder ="Name">
+            </div>
+
+            <p class="warning small-12 columns" ng-show="empty_task" >
+                Task name is required!
+            </p>
+
+            <div class="small-12 columns">
+                Description
+                <input ng-model="task_description" type="text" placeholder ="Task Description">
+            </div>
+
+            <div class="small-12 columns">
+                Assign to
+                <select ng-model="assigned_user" class = "select" ng-options="user.name for user in userOpts">
+                    <!--<option value="">{{assigned_user.name}}</option>-->
+                </select>
+            </div>
+
+            <div class="small-12 columns">
+                Deadline <span style="color:red">*</span>
+                <datepicker date-format="yyyy-MM-dd">
+                    <input ng-model="task_deadline" type="text"/>
+                </datepicker>
+            </div>
+
+            <p class="warning small-12 columns" ng-show="empty_deadline" >
+                Deadline is required!
+            </p>
+            <div class="small-12 columns">
+                Completed: &nbsp;&nbsp;
+                <form class="small-12 columns">
+                    <input type="radio" ng-value="true" ng-model="completed">
+                    &nbsp;YES
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" ng-value="false" ng-model="completed"/>
+                    &nbsp;NO<br/>
+                </form>
+            </div>
+            <p class="small-12 congrats columns" ng-show="editTaskSuccess" >
+                Task {{task_name}} has been editted!
+            </p>
+        </div>
+        <div class="text-center">
+            <button ng-click="editTaskInfo()" class="button small info">Submit</button>
+        </div>
+    </div>
+</div>

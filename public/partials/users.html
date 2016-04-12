@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="small-9 small-centered">
+        <div class="small-12 columns">
+            <div class="row">
+                <a class="small success button" href="#/addUser">Add User</a>
+            </div>
+        </div>
+        <div class="small-12 columns">
+            <div class="row" ng-controller="UsersController">
+                <div id="usrList" ng-repeat="user in usersData" class="row">
+                    <div class="small-4 columns">
+                        <a href="#/users/{{user._id}}">{{user.name}}</a>
+                    </div>
+                    <div class="small-6 columns">{{user.email}}</div>
+                    <div style="text-align: right" class="small-2 columns"><button ng-click="deleteUser(user._id)" class="button alert small info" ng-style="red">Delete</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

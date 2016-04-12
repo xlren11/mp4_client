@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="small-9 small-centered">
+        <div class="small-12 columns">
+            <div class="row">
+                <!--<div style="font-size:25px" class="title-style small-12 columns"><strong><span style="color:rebeccapurple">Tasks</span></strong></div>-->
+                <a class="small success button" href="#/addTask">Add Task</a>
+            </div>
+        </div>
+        <div class="small-12 columns">
+            <div class="row" ng-controller="TasksController">
+                <div class="small-12">
+                    <input type="radio" name="opt1" ng-model="range" value="pending" ng-click="refresh()"/>
+                    Pending&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="opt1" ng-model="range" value="completed" ng-click="refresh()"/>
+                    Completed&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="opt1" ng-model="range" value="all" ng-click="refresh()"/>
+                    All&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="opt2" ng-value="true" ng-model="isAscending" ng-click="refresh()"/>
+                    Ascending&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="opt2" ng-value="false"  ng-model="isAscending" ng-click="refresh()"/>
+                    Descending
+                </div>
+
+                <div class="row">
+                    <!--<div class="small-2 columns">Sorted by</div>-->
+                    <div class="small-12 columns">
+                        <span>Sorted By</span>
+                        <select ng-model="sortedBy" ng-change="refresh()" class = "select" ng-options="o as o for o in sortingMethods"></select>
+                    </div>
+                </div>
+
+                <ul class="pagination text-center" role="navigation" aria-label="Pagination">
+                    <li class="pagination-previous"><button  class="button small info" ng-click="prev()">Prev</button></li>
+                    <li class="pagination-next"><button  class="button small info" ng-click="next()" >Next</button></li>
+
+                </ul>
+                <div ng-repeat="task in tasksData.slice(display, display + 10)">
+                    <div class="row">
+                        <div class="small-5 columns">
+                            <a href="#/tasks/{{task._id}}">{{task.name}}</a>
+                        </div>
+                        <div class="small-5 columns">
+                            <!--<span>Deadline: {{task.deadline|date:'yyyy-MM-dd'}}</span>-->
+                            <!--<br>-->
+                            <!--<span>Date created: {{task.dateCreated|date:'yyyy-MM-dd'}}</span>-->
+                            <!--<br>-->
+                            Assigned to: {{task.assignedUserName}}
+                        </div>
+                        <div style="text-align: right;" class="small-2 columns">
+                            <button ng-click="deleteTask(task._id)" class="button alert small info">Delete</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

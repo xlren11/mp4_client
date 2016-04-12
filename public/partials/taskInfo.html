@@ -1,0 +1,16 @@
+<div class="row" ng-controller="TaskInfoController">
+    <div class="small-9 small-centered">
+        <div class="small-12 columns">
+            <div class="row">
+                <a class="small success button" ng-click="editTask()" href="#/tasks/{{task._id}}/edit">Edit Task</a>
+            </div>
+            <div class="row">
+                <p><strong>Task name</strong>:  {{task.name}}</p>
+                <p><strong>Task Description</strong>:  {{task.description}}</p>
+                <p><strong>Deadline</strong>:  {{task.deadline|date:'yyyy-MM-dd'}}</p>
+                <p><strong>Completed</strong>:  {{task.completed}}</p>
+                <p><strong>Assigned to</strong>:  {{task.assignedUserName}}</p>
+            </div>
+        </div>
+    </div>
+</div>
